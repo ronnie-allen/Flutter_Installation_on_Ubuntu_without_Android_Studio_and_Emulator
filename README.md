@@ -1,16 +1,16 @@
-# 🚀 Flutter Installation on Ubuntu without Android Studio & Emulator
+# Flutter Installation Guide: Ubuntu via VS Code (No Android Studio)
 
 ===================================================================
 
-This guide explains how to install Flutter on Ubuntu using VS Code, without Android Studio and emulator.
+This guide outlines the process for installing Flutter on Ubuntu for use with Visual Studio Code, specifically circumventing the need for the full Android Studio IDE and emulator.
 
 ---
 
-## 📥 **1. Install Flutter SDK**
+## 1. Install the Flutter SDK
 
 ---
 
-1. **Download Flutter SDK:**
+1. **Download the Flutter SDK:**
 
 ```bash
 sudo apt update
@@ -19,28 +19,28 @@ curl -O https://storage.googleapis.com/flutter_infra_release/releases/stable/lin
 
 ```
 
-2. **Extract Flutter:**
+2. **Extract the Archive:**
 
 ```bash
 sudo tar xf flutter_linux_3.41.2-stable.tar.xz -C /opt
 
 ```
 
-3. **Set Flutter Path:** Add the following lines to `~/.bashrc`:
+3. **Configure the Environment Path:** Add the following export command to your `~/.bashrc` file:
 
 ```bash
 export PATH="/opt/flutter/bin:$PATH"
 
 ```
 
-Apply the changes:
+Apply the configuration changes:
 
 ```bash
 source ~/.bashrc
 
 ```
 
-4. **Check Flutter Version:**
+4. **Verify the Flutter Version:**
 
 ```bash
 flutter --version
@@ -49,33 +49,33 @@ flutter --version
 
 ---
 
-## 📦 **2. Install Android SDK without Android Studio**
+## 2. Install the Android SDK (Command-Line Only)
 
 ---
 
-1. **Create Android Directory:**
+1. **Create the Android Directory Structure:**
 
 ```bash
 mkdir -p ~/Android/cmdline-tools
 
 ```
 
-2. **Download Command Line Tools:**
+2. **Download the Android Command Line Tools:**
 
 ```bash
-curl -O https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
+curl -O https://dl.google.com/android/repository/commandlinetools-linux-14742923_latest.zip
 
 ```
 
-3. **Extract and Move Tools:**
+3. **Extract and Relocate the Tools:**
 
 ```bash
-unzip commandlinetools-linux-9477386_latest.zip
+unzip commandlinetools-linux-14742923_latest.zip
 mv cmdline-tools ~/Android/cmdline-tools/tools
 
 ```
 
-4. **Set Android SDK Path:** Add these lines to `~/.bashrc`:
+4. **Configure the Android SDK Path:** Append these variables to your `~/.bashrc` file:
 
 ```bash
 export ANDROID_SDK_ROOT=$HOME/Android
@@ -83,7 +83,7 @@ export PATH=$ANDROID_SDK_ROOT/cmdline-tools/latest/bin:$ANDROID_SDK_ROOT/platfor
 
 ```
 
-Apply the changes:
+Apply the configuration changes:
 
 ```bash
 source ~/.bashrc
@@ -92,18 +92,18 @@ source ~/.bashrc
 
 ---
 
-## ⚙️ **3. Install SDK Components**
+## 3. Install Android SDK Components
 
 ---
 
-1. **Install Platform Tools:**
+1. **Install Required Platform Tools:**
 
 ```bash
 sdkmanager "platform-tools" "platforms;android-34" "build-tools;34.0.0" "cmdline-tools;latest"
 
 ```
 
-2. **Accept Licenses:**
+2. **Accept the Software Licenses:**
 
 ```bash
 yes | sdkmanager --licenses
@@ -112,13 +112,13 @@ yes | sdkmanager --licenses
 
 ---
 
-## 📄 **4. Fix License and Path Issues**
+## 4. Resolve License and Path Requirements
 
 ---
 
-If `flutter doctor` shows license issues:
+If `flutter doctor` indicates unresolved license issues, reformat the tool directory structure:
 
-1. **Move Tools to Latest:**
+1. **Migrate Tools to the 'Latest' Directory:**
 
 ```bash
 mkdir -p $ANDROID_SDK_ROOT/cmdline-tools/latest
@@ -126,7 +126,7 @@ mv $ANDROID_SDK_ROOT/cmdline-tools/tools/* $ANDROID_SDK_ROOT/cmdline-tools/lates
 
 ```
 
-2. **Reaccept Licenses:**
+2. **Re-accept the Licenses:**
 
 ```bash
 yes | sdkmanager --licenses
@@ -135,11 +135,11 @@ yes | sdkmanager --licenses
 
 ---
 
-## ✅ **5. Final Verification**
+## 5. Final Verification
 
 ---
 
-1. **Check Flutter Doctor:**
+1. **Execute the Diagnostic Tool:**
 
 ```bash
 flutter doctor
@@ -158,8 +158,6 @@ flutter doctor
 
 ```
 
----
-
-🌟 *Flutter is now ready to use with VS Code on Ubuntu!* 🎉
+*Flutter is now configured for use with Visual Studio Code on Ubuntu.*
 
 ---
